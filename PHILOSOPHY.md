@@ -10,8 +10,9 @@ It is not about the final result, but the process; not about technical specifica
 ### 0. Designed in Native Language
 
 `soma-moa` was not built in English first and then translated into Korean.
-It is a protocol conceived through deep thought in Korean, then proven as global standard code.
+It originally began from knowledge accumulated in daily life while working with various machines doing sample work in factories and working as a construction laborer. With the recent discovery of AI, it started from the simple thought: *"Could I also create documentation with this?"*
 
+It is a protocol conceived through deep thought in Korean, then proven as global standard code.
 Therefore, `moa` is not an alias; it is its true name.
 
 While English words like *gather* or *collect* translate to "모으다," the nuance of "embracing and bringing together fragmented error logs and distributed edge devices" is uniquely captured in the native Korean word *moa*.
@@ -99,6 +100,19 @@ Beyond the open-source protocol standard (`soma-moa`), the brand and domain (`So
 - Official Project / Brand Name: `Somamoa`
 
 ---
-origin: by deundeuni (original design: deundeuni (soma-moa))
+
+### 8. Open Foundation Models & Solo Design
+
+This protocol originated from the thoughts of a single designer (`deundeuni`) rather than a giant organization.
+It originally started from knowledge accumulated in daily life while working with various machines doing sample work in factories and working as a construction laborer. With the recent discovery of AI, it started from the thought, *"Could I also create documentation with this?"*
+
+Thanks to Google opening up its AI foundation infrastructure alongside various other companies, making AI accessible to individuals, an ordinary person like me could gratefully use AI to create materials that can contribute to the world.
+
+`soma-moa` is a record of that journey. It was refined through edge optimization verification with Meta AI and spatial governance verification with Gemini.
+This serves as a factual record showing that the opening of foundation models enables ecosystem expansion—not exclusive monopolies by specific corporations—encompassing individuals and diverse physical machines on the ground (collaborative robots, AGVs, construction equipment, service robots).
+
+---
+origin: by deundeuni - factory sample work & construction worker background
 technical reviews: Meta AI & Gemini
 repo: github.com/soma-moa
+prior art declaration: 2026-08-25
