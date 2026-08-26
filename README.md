@@ -1,11 +1,13 @@
-# soma-moa
+# soma-moa: It starts from everyday life.
 
-**[한국어](README.ko.md) | [English](README.en.md)**
+**People, AI, and robots gather, extending from personal to home to field.**
 
-> domain: [somamoa.ai.kr](https://somamoa.ai.kr) | origin: deundeuni (soma-moa)
-> 42KB / Ed25519 / Article X
-
-- KO: 일상에서 시작합니다. 사람·AI·로봇이 모여 개인에서 가정으로, 현장까지 이어지는 물리 AI 프로토콜
-- EN: It starts from everyday life. People, AI, and robots gather, extending from personal to home to field.
+[English] | [한국어](README.ko.md)
 
 [Brain: Llama/Gemini] → [Governance: soma-moa] → [Actuator / APK]
+
+- Definition: Guidance concierge robot for hospital, factory, lobby, dept store, logistics, device service, food corner
+- Principle: Charter 0 - Robot is subordinate / L1 Diagnosis / L2 Lock / L3 Human Sign-off (Ed25519)
+- Security: 42KB SDK, Zero Trust, CBOR<50B
+
+> origin: deundeuni (soma-moa) | domain: somamoa.ai.kr
