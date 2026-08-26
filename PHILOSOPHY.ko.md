@@ -112,7 +112,7 @@ soma-moa는 그 과정을 기록한 사례다. Meta AI의 엣지 최적화 검�
 이는 기반 모델의 개방이 특정 기업의 독점이 아니라, 개인과 다양한 현장 기계(협동 로봇, AGV, 건설 기계, 서비스 로봇)까지 아우르는 생태계 확장을 가능하게 한다는 사실적 기록이다.
 
 ---
-origin: by deundeuni - factory sample work & construction worker background
-technical reviews: Meta AI & Gemini
-repo: github.com/soma-moa
-prior art declaration: 2026-08-25
+origin: by deundeuni (soma-moa) - factory sample work & construction worker background
+domain: somamoa.ai.kr / Somamoa.ai.kr | repo: github.com/soma-moa
+technical reviews: Meta AI & Gemini (as tools)
+prior art declaration: 2026-08-25 | initial record: 2026-08-24
