@@ -1,6 +1,7 @@
 # soma-moa : Design Philosophy & Prior Art Declaration
 > **original design:** `deundeuni (soma-moa)` | **repository:** `github.com/soma-moa`  
 > **initial record date:** 2026-08-24 | **prior art declaration:** 2026-08-25
+> **domain:** `somamoa.ai.kr`
 
 This document is a record of why `soma-moa` was designed this way.
 It is not about the final result, but the process; not about technical specifications, but traces of thought.
@@ -82,6 +83,31 @@ This document discloses the minimal safety auxiliary specification as Prior Art 
 
 ---
 
+### 5-1. Technician Dignity & Quiet Assist Protocol
+
+**Purpose: Preserve physical safety without harming human dignity.**
+
+The fastest safety in the field is immediate correction. When people feel embarrassed, they hide instead of fixing, and hidden errors become accidents. This protocol prevents that.
+
+**1. Quiet Assist (Haptic Only)**
+When AI detects a minor error or risk, it does NOT trigger a loud alarm or pop-up for everyone to see. Instead, it notifies only the wearer via a private haptic signal (1x vibration on wristband/tool).
+- 1x vibration: "Not this way, hold on a sec"
+- 2x vibration: "Okay for now, let's check it on the next routine"
+Other workers do not notice, so workflow and atmosphere remain intact.
+
+**2. No-Log Grace (Local-Only, Auto-Delete in 10s)**
+This quiet assist signal leaves NO cloud log. It is auto-deleted from the device after 10 seconds.
+This is NOT for hiding mistakes. For physical risks (collision, electric shock), the 0.1ms L0 deterministic cutoff still activates instantly and its log IS preserved for safety.
+No-Log applies only to minor, correctable errors like missed checks or wrong order. With no fear of performance review, technicians fix immediately, making the site safer.
+
+**3. Principle of Respect**
+AI is not a supervisor who teaches workers in front of others. It is an auxiliary that taps you quietly on the side.
+This implements Axiom 0 of soma-moa: "Governance itself is only auxiliary to human's main work" as human-to-human courtesy.
+
+**One-line summary:** Physical safety is enforced strongly with 0.1ms cutoff, social safety (embarrassment) is protected softly with 1 haptic and no-log grace. This enables "Leave with a smile, return with a smile."
+
+---
+
 ### 6. Cross-AI Technical Peer Review & Attribution
 
 Rather than relying solely on a single designer's rationale, technical precision was maximized through cross-peer reviews with major foundation AI architectures.
@@ -112,7 +138,8 @@ Thanks to Google opening up its AI foundation infrastructure alongside various o
 This serves as a factual record showing that the opening of foundation models enables ecosystem expansion—not exclusive monopolies by specific corporations—encompassing individuals and diverse physical machines on the ground (collaborative robots, AGVs, construction equipment, service robots).
 
 ---
-origin: by deundeuni - factory sample work & construction worker background
-technical reviews: Meta AI & Gemini
-repo: github.com/soma-moa
-prior art declaration: 2026-08-25
+origin: by deundeuni (soma-moa) - factory sample work & construction worker background  
+domain: somamoa.ai.kr / Somamoa.ai.kr | repo: github.com/soma-moa  
+technical reviews: Meta AI & Gemini (as tools)  
+prior art declaration: 2026-08-25 | initial record: 2026-08-24  
+Article tags: Auxiliary Governance, Technician Dignity Protocol, Quiet Assist, No-Log Grace, Physical AI Safety
