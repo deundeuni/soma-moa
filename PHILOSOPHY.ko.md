@@ -1,6 +1,7 @@
 # soma-moa : Design Philosophy & Prior Art Declaration
 > **original design:** `deundeuni (soma-moa)` | **repository:** `github.com/soma-moa`  
 > **initial record date:** 2026-08-24 | **prior art declaration:** 2026-08-25
+> **domain:** `somamoa.ai.kr`
 
 이 문서는 `soma-moa`가 왜 이렇게 설계되었는가에 대한 기록이다.
 결과가 아니라 과정, 스펙이 아니라 사유의 흔적이다.
@@ -82,6 +83,31 @@ SOMA라는 영문명 외에, 발음하기 편하고 직관적인 이름을 찾�
 
 ---
 
+### 5-1. 기술자 존엄 및 조용한 보조 프로토콜 (Technician Dignity & Quiet Assist Protocol)
+
+**목적: 안전은 지키되, 사람의 자존감은 건드리지 않는다.**
+
+현장에서 가장 빠른 안전은 "바로 고치는 것"이다. 사람이 부끄러움을 느끼면 고치는 대신 숨기게 되고, 숨기면 사고로 커진다. 본 프로토콜은 이를 방지한다.
+
+**1. 조용한 보조 (Quiet Assist)**
+AI가 실수나 위험을 감지했을 때, 큰 경고음이나 화면 팝업으로 모두에게 알리지 않는다. 대신 작업자 본인만 느낄 수 있는 햅틱 신호(손목 밴드/장비 진동 1회)로 조용히 알려준다.
+- 진동 1회: "지금 그 방식은 아니에요, 잠깐만요"
+- 진동 2회: "지금은 괜찮아요, 다음 루틴에서 같이 봐요"
+다른 작업자는 알 수 없으므로, 작업 흐름과 분위기가 끊기지 않는다.
+
+**2. 기록 없는 배려 (No-Log Grace)**
+이 조용한 보조 신호는 클라우드에 기록을 남기지 않는다. 기기 내에서 10초 후 자동 삭제된다.
+이는 실수를 숨기기 위함이 아니다. 물리적 위험(충돌, 감전 등)이 있는 경우는 0.1ms L0 차단기가 기존대로 즉시 작동하고, 그 기록은 안전을 위해 반드시 남는다.
+기록을 남기지 않는 대상은 "바로잡으면 되는 가벼운 순서 실수, 놓친 체크" 등이다. 기록이 인사 평가로 이어질 수 있다는 두려움이 없으므로, 기술자는 즉시 수정할 수 있고 결과적으로 현장은 더 안전해진다.
+
+**3. 기술자 대우 원칙**
+AI는 작업자 앞에서 작업자를 가르치는 "감시자"가 아니다. 몰래 옆에서 툭 쳐주는 "보조자(Auxiliary)"다.
+이 프로토콜은 soma-moa의 0번 헌장 "거버넌스조차 인간의 주 작업에는 보조다"를 사람 사이의 예의로 구현한 것이다.
+
+**한 줄 요약:** 물리적 안전은 0.1ms 차단으로 강력하게, 사회적 안전(무안함)은 진동 1회와 기록 없음으로 부드럽게 지킨다. 그래서 "웃으며 출근, 웃으며 퇴근"이 가능해진다.
+
+---
+
 ### 6. 크로스 AI 기술 검증 및 출처 (Attribution)
 
 단일 설계자의 사유에 머물지 않고, 주요 대형 AI 파운데이션 모델 아키텍처들과의 크로스 피어 리뷰(Peer Review)를 거쳤다.
@@ -112,7 +138,8 @@ soma-moa는 그 과정을 기록한 사례다. Meta AI의 엣지 최적화 검�
 이는 기반 모델의 개방이 특정 기업의 독점이 아니라, 개인과 다양한 현장 기계(협동 로봇, AGV, 건설 기계, 서비스 로봇)까지 아우르는 생태계 확장을 가능하게 한다는 사실적 기록이다.
 
 ---
-origin: by deundeuni (soma-moa) - factory sample work & construction worker background
-domain: somamoa.ai.kr / Somamoa.ai.kr | repo: github.com/soma-moa
-technical reviews: Meta AI & Gemini (as tools)
-prior art declaration: 2026-08-25 | initial record: 2026-08-24
+origin: by deundeuni (soma-moa) - factory sample work & construction worker background  
+domain: somamoa.ai.kr / Somamoa.ai.kr | repo: github.com/soma-moa  
+technical reviews: Meta AI & Gemini (as tools)  
+prior art declaration: 2026-08-25 | initial record: 2026-08-24  
+Article tags: Auxiliary Governance, Technician Dignity Protocol, Quiet Assist, No-Log Grace, Physical AI Safety
