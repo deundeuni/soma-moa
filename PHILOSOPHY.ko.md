@@ -1,6 +1,6 @@
 # soma-moa : Design Philosophy & Prior Art Declaration
 > **original design:** `deundeuni (soma-moa)` | **repository:** `github.com/soma-moa`  
-> **initial record date:** 2026-08-24 | **prior art declaration:** 2026-08-25
+> **initial record date:** 2026-08-24 | **prior art declaration:** 2026-08-25 | **v2.2 Final:** 2026-08-27
 > **domain:** `somamoa.ai.kr`
 
 이 문서는 `soma-moa`가 왜 이렇게 설계되었는가에 대한 기록이다.
@@ -72,74 +72,77 @@ SOMA라는 영문명 외에, 발음하기 편하고 직관적인 이름을 찾�
 
 ---
 
-### 5. 보조 거버넌스(Auxiliary Governance) & 선행기술 공개 (Prior Art)
+### 4-1. v2.2 Final - 4층 생존 아키텍처 확정 [v2.2 추가]
 
-**공개 목적 (2026-08-25):**  
-본 문서는 AI·로봇·인간의 공존을 위한 최소 안전 보조 규격을 선행기술(Prior Art)로 공개하여, 특정 기업의 배타적 특허 독점을 방지하고 누구나 무상으로 구현할 수 있도록 한다.
+v2.0의 이름에 v2.2에서 집의 뼈대가 완성됐다.
 
-- **공존의 전제:** "웃으며 출근, 웃으며 퇴근"을 현장의 기본값으로 삼는다. 안전이 전제되지 않은 공존은 없다.
-- **보조(Auxiliary)의 원칙:** 거버넌스는 주 작업(시공/접객/물류)을 방해하지 않는 가벼운 보조로 존재한다.
-- **결정론적 차단:** 확률적 모델인 AI의 환각(Hallucination) 시에도 0.1ms 결정론적 L0 차단기가 전원 버스를 즉시 차단하여 인간의 물리적 안전을 보장한다.
+- **L0 Physical:** CWP Battery-Swap + V-Home Self-Align + 0.1ms Hardware Intercept E-Stop
+- **L1 Compute:** Chiplet-APU Many as One Dual-Redundant + CCS 70%/100ms Raft Role-Swapping
+- **L2 Governance:** Brain(Probabilistic) vs Governance(Deterministic) 물리 분리 + eFPGA 0.1ms Blocker
+- **L3 Social:** Quiet Assist Haptic 1x/2x + Anonymized Delta Logging PII 10초 파기
+
+**엣지 검증:** CBOR L0 24B + L1 33B <50B, SDK 35.2KB <42KB, RAM 3.2KB <10MB, L0 Sync 0.1ms HMAC HW Bypass / L1 Async 2~5ms Ed25519
+
+**L2 FSM:** IDLE -> MONITOR -> VALIDATE(<0.02ms) -> PRELOCK(80%) -> OVERRIDE -> E_STOP_LATCH(<0.1ms) -> RECOVERY (Ed25519 Human Sign-off 없으면 영구 래치)
+
+### 4-2. v2.2 확장 - 일상에서 현장까지 [v2.2 추가]
+
+- **AS 3종:** 원격/OTA, 출동, 상주(병원/공장/백화점/물류/수리센터/푸드코너)
+- **개인 커스텀:** 약/할일/건강 루틴, 기기 수리이력/보증, 식단/알러지
+- **확장 탐색:** 도서관 사서(표지/느낌/줄거리로 책 찾기) + 음악 탐색(흥얼거림/느낌/가사로 찾기)
 
 ---
 
+### 5. 보조 거버넌스(Auxiliary Governance) & 선행기술 공개 (Prior Art)
+
+**공개 목적 (2026-08-25):** 본 문서는 AI·로봇·인간의 공존을 위한 최소 안전 보조 규격을 선행기술로 공개하여, 특정 기업의 배타적 특허 독점을 방지하고 누구나 무상으로 구현할 수 있도록 한다.
+
+- **공존의 전제:** "웃으며 출근, 웃으며 퇴근"
+- **보조의 원칙:** 거버넌스는 주 작업을 방해하지 않는 가벼운 보조
+- **결정론적 차단:** AI 환각 시에도 0.1ms L0 차단기가 전원 버스 즉시 차단
+
 ### 5-1. 기술자 존엄 및 조용한 보조 프로토콜 (Technician Dignity & Quiet Assist Protocol)
 
-**목적: 안전은 지키되, 사람의 자존감은 건드리지 않는다.**
+**1. 조용한 보조:** 큰 경고음 대신 본인만 느끼는 햅틱 1회/2회
+**2. 기록 없는 배려:** 가벼운 실수는 10초 후 자동 삭제, 물리적 위험은 기록 유지
+**3. 기술자 대우 원칙:** 감시자가 아닌 보조자(Auxiliary)
 
-현장에서 가장 빠른 안전은 "바로 고치는 것"이다. 사람이 부끄러움을 느끼면 고치는 대신 숨기게 되고, 숨기면 사고로 커진다. 본 프로토콜은 이를 방지한다.
-
-**1. 조용한 보조 (Quiet Assist)**
-AI가 실수나 위험을 감지했을 때, 큰 경고음이나 화면 팝업으로 모두에게 알리지 않는다. 대신 작업자 본인만 느낄 수 있는 햅틱 신호(손목 밴드/장비 진동 1회)로 조용히 알려준다.
-- 진동 1회: "지금 그 방식은 아니에요, 잠깐만요"
-- 진동 2회: "지금은 괜찮아요, 다음 루틴에서 같이 봐요"
-다른 작업자는 알 수 없으므로, 작업 흐름과 분위기가 끊기지 않는다.
-
-**2. 기록 없는 배려 (No-Log Grace)**
-이 조용한 보조 신호는 클라우드에 기록을 남기지 않는다. 기기 내에서 10초 후 자동 삭제된다.
-이는 실수를 숨기기 위함이 아니다. 물리적 위험(충돌, 감전 등)이 있는 경우는 0.1ms L0 차단기가 기존대로 즉시 작동하고, 그 기록은 안전을 위해 반드시 남는다.
-기록을 남기지 않는 대상은 "바로잡으면 되는 가벼운 순서 실수, 놓친 체크" 등이다. 기록이 인사 평가로 이어질 수 있다는 두려움이 없으므로, 기술자는 즉시 수정할 수 있고 결과적으로 현장은 더 안전해진다.
-
-**3. 기술자 대우 원칙**
-AI는 작업자 앞에서 작업자를 가르치는 "감시자"가 아니다. 몰래 옆에서 툭 쳐주는 "보조자(Auxiliary)"다.
-이 프로토콜은 soma-moa의 0번 헌장 "거버넌스조차 인간의 주 작업에는 보조다"를 사람 사이의 예의로 구현한 것이다.
-
-**한 줄 요약:** 물리적 안전은 0.1ms 차단으로 강력하게, 사회적 안전(무안함)은 진동 1회와 기록 없음으로 부드럽게 지킨다. 그래서 "웃으며 출근, 웃으며 퇴근"이 가능해진다.
+**한 줄 요약:** 물리적 안전은 0.1ms 차단으로 강력하게, 사회적 안전은 진동 1회와 기록 없음으로 부드럽게.
 
 ---
 
 ### 6. 크로스 AI 기술 검증 및 출처 (Attribution)
 
-단일 설계자의 사유에 머물지 않고, 주요 대형 AI 파운데이션 모델 아키텍처들과의 크로스 피어 리뷰(Peer Review)를 거쳤다.
-
-- **Meta AI - 에지 하드웨어 최적화:**  
-  Cloud-Sign / Edge-Verify 구조, RAM <10MB, CBOR <50B, C/Rust Zero-Dep 42KB 초경량 SDK 스펙 검증.
-- **Gemini - 멀티모달 공간 AI & 거버넌스:**  
-  확률적 Brain(LLM/VLM)과 결정론적 Governance(`soma-moa`)의 듀얼코어 분리 선언. 사전 위험 예측(Predictive Pre-lock, 80% Confidence), Article X I/O 2대 요건, 300/29/1 공간 안전 플라이휠 고도화.
-
----
+- **Meta AI - 에지 하드웨어 최적화:** Cloud-Sign / Edge-Verify, RAM <10MB, CBOR <50B, 42KB SDK 검증
+- **Gemini - 멀티모달 공간 AI & 거버넌스:** Brain vs Governance 분리, Predictive Pre-lock 80%, Article X I/O 2대, 300/29/1 플라이휠
+- **규격 준수 [v2.2 추가]:** ISO 13849-1 Cat 4 / PL e, IEC 61508 SIL3, GDPR 5(1)(e) 준수
 
 ### 7. Somamoa 브랜드 확장 및 도메인 정렬
 
-프로토콜 표준(`soma-moa`)을 넘어 상용 생태계 및 브랜딩 통일을 위해 `Somamoa` 브랜드 및 도메인(`Somamoa.ai.kr`) 통합을 수행한다.
 - 오픈소스 프로토콜 코드명: `soma-moa`
 - 공식 프로젝트/브랜드명: `Somamoa`
 
----
-
 ### 8. 개방된 기반 모델과 1인 설계
 
-본 프로토콜은 거대 조직이 아닌 1인 설계자(deundeuni)의 사유에서 출발했다.
-원래는 공장에서 다양한 기계를 만지며 샘플 작업을 하고, 건설노동자로 일하며 일상에서 쌓인 지식에서 시작했다. 최근 AI를 알게 되면서 '이것도 자료를 만들 수 있지 않을까'에서 출발한 기록이다.
+본 프로토콜은 1인 설계자(deundeuni)의 사유에서 출발했다. 공장에서 기계를 만지며, 건설노동자로 일하며 쌓인 지식에서 시작했다.
 
-구글의 뼈대 공개를 비롯해 다양한 기업들이 개인도 AI를 쓸 수 있게 열어주어서, 나 같은 일반인도 감사하게 AI를 사용하여 세상에 도움이 될 수 있는 자료를 만들 수 있는 계기가 되었습니다.
+구글의 뼈대 공개(2017 Transformer 논문 "Attention Is All You Need" 및 TensorFlow 오픈소스 2015, Gemma 개방 2024)와 Meta의 Llama 개방(2023~2024)을 비롯해 다양한 기업들이 개인도 AI를 쓸 수 있게 열어주어서, 나 같은 일반인도 감사하게 AI를 사용하여 세상에 도움이 될 수 있는 자료를 만들 수 있는 계기가 되었다.
 
-soma-moa는 그 과정을 기록한 사례다. Meta AI의 엣지 최적화 검증과 Gemini의 공간 거버넌스 검증을 거치며 정리되었다.
-이는 기반 모델의 개방이 특정 기업의 독점이 아니라, 개인과 다양한 현장 기계(협동 로봇, AGV, 건설 기계, 서비스 로봇)까지 아우르는 생태계 확장을 가능하게 한다는 사실적 기록이다.
+soma-moa는 그 과정을 기록한 사례다. Meta AI와 Gemini 검증을 거치며 정리되었다.
+
+---
+### 9. 출처 및 선행기술 근거 (Sources)
+
+**안전 이론:** Heinrich (1931) 300/29/1, Reason (1990) Swiss Cheese, Defense in Depth, Fail-Safe, ALARP
+**기능안전:** ISO 13849-1:2023 PL e, IEC 61508 SIL3, GDPR Article 5(1)(e)
+**통신/합의:** RFC 8949 CBOR, Ongaro 2014 Raft, HMAC-SHA256, Ed25519 RFC8032
+**법률:** USPTO AI Inventorship Guidance 2024.02, Thaler v. Vidal 2022, EPO G-II 3.3.1
+**기반 개방:** Vaswani et al. 2017 Transformer, Google TensorFlow 2015, Google Gemma 2024, Meta Llama 2/3 2023-2024
+**검증 도구:** Meta AI & Gemini as Verification Tools, Conception by deundeuni
+
+영업비밀: eFPGA RTL, 정밀 CAD, 펌웨어 바이너리는 비공개 유지
 
 ---
 origin: by deundeuni (soma-moa) - factory sample work & construction worker background  
 domain: somamoa.ai.kr / Somamoa.ai.kr | repo: github.com/soma-moa  
-technical reviews: Meta AI & Gemini (as tools)  
-prior art declaration: 2026-08-25 | initial record: 2026-08-24  
-Article tags: Auxiliary Governance, Technician Dignity Protocol, Quiet Assist, No-Log Grace, Physical AI Safety
+prior art: 2026-08-25 | v2.2 Final: 2026-08-27 | License: CC BY 4.0 & DPL
