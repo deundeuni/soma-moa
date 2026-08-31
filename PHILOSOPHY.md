@@ -129,12 +129,12 @@ The name from v2.0 now has a physical body that survives in the field.
 
 ### 8. Open Foundation Models & Solo Design
 
-This protocol originated from the thoughts of a single designer (`deundeuni`) rather than a giant organization. It originally started from knowledge accumulated in daily life while working with various machines doing sample work in factories and working as a construction laborer.
+Designer
+This protocol originates from the reasoning of a single designer (deundeuni). It began with hands-on knowledge accumulated while handling various machines for sample work in a factory and working as a construction worker.
 
-Thanks to Google's open foundation infrastructure (2017 Transformer paper "Attention Is All You Need" and open-source TensorFlow 2015, Gemma open models 2024) and Meta's Llama open release (2023-2024), alongside various other companies making AI accessible to individuals, an ordinary person like me could gratefully use AI to create materials that can contribute to the world.
+soma-moa is a record of that reasoning, organized into global standard code.
 
-`soma-moa` is a record of that journey. It was refined through edge optimization verification with Meta AI and spatial governance verification with Gemini.
-This serves as a factual record showing that the opening of foundation models enables ecosystem expansion—not exclusive monopolies by specific corporations.
+In the process of organizing it, I was able to utilize open foundation models such as Google's Transformer (2017), TensorFlow (2015), Gemma (2024), and Meta's Llama (2023~) as verification tools, for which I am grateful. Meta AI and Gemini are verification tools; the conception belongs to deundeuni.
 
 ---
 ### 9. Sources & Prior Art Basis [v2.2 Added]
