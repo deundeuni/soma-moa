@@ -43,7 +43,32 @@ pub struct L1WarningLog {
     pub gov: bool,
     pub crc: u16,
 }
+```
 
-5. 장소 매핑 (Location Mapping) • 기업용 (Enterprise) — 물류센터, 공장, AS센터, 백화점/병원 상주 등 가동 연속성 중심 환경 (상주 단말 재가동 권한 미부여).[A] • 일상용 (Daily) — 푸드코너, 도서관, 음악 탐색 등 Vibe Search 중심 환경 (신뢰도 $90\%$ 미만 시 단정적 추측 지향 안 함).[B] • 개인용 (Personal) — 약/할일/건강/식단/수리이력 등 개인화 환경 (PII $10\text{s}$ 파기 + 햅틱 1x/2x 알림).[C]  6. 보안 및 자가치유 (Security & Self-Healing) • APK 보안 — 전자서명 미보유 시 설치/실행을 차단 제어하며, 리패키징, 루팅, 탈옥 감지 시 L2 Lock 상태로 전환되어 하드웨어를 보호한다. • Soft Reset (자율 제어) — 칩렛 재기동, Raft 재선출, Token Bucket 리셋, V-Home 재도킹. T-Reg $15\%$ 제한 및 3회 연속 실패 시 영구 격리. • Hard Reset (인간 확인 필수) — Motor EN LOW E_STOP_LATCH 해제 후 RECOVERY 진입 시 Ed25519 인간 서명 필수 (Self-restart 지향 안 함).  7. 안전 프레임워크 (Safety Framework) • S-01 Heinrich (1931) — 300:29:1 비율은 역사적·철학적 동기로 원용하며, 실제 구현은 Safety-II 및 Just Culture에 기반한다. • S-02 ~ S-05 및 기능안전 규격 — Swiss Cheese 능동 차단, Defense in Depth, Fail-Safe (EN PIN LOW), ALARP 확장 및 ISO 13849-1 Cat 4 PL e / IEC 61508 SIL3 / GDPR Article 5(1)(e) PII $10\text{s}$ 파기 조항을 준수한다.  8. 선행기술 등록 및 고지 (Prior Art & Disclaimer) • 선행기술 레지스트리 등재 명세 (CERN Zenodo DOIs) — • deundeuni/CWP-Battery-Swap (DOI: 10.5281/zenodo.22373538) • deundeuni/CWP-Clamping-Battery-Swap-System (DOI: 10.5281/zenodo.22373722) • deundeuni/CWP-Rolling-Self-Align-Battery-Swap-System (DOI: 10.5281/zenodo.22373704) • deundeuni/LAST-LIGHT (DOI: 10.5281/zenodo.22373189) • deundeuni/MAX-LIFE-ICE-BELT (DOI: 10.5281/zenodo.22373686) • deundeuni/chiplet-apu-multi-system-survival-architecture (DOI: 10.5281/zenodo.22374987)
-     (상기 CERN Zenodo / DataCite 글로벌 학술 레지스트리 등재 완료 / Active) • 선행기술 등록 고지 — 본 문서의 모든 커밋 해시(Commit Hash) 및 CERN Zenodo / DataCite 글로벌 학술 레지스트리에 타임스탬프 기록이 등재되어 있습니다. 이는 제3자의 사적 독점 특허화 위험을 완화하고, 전 세계 특허 심사 시 공공 영역의 선행기술(Prior Art)로 참조되어 신규성 및 진보성 논박 근거로 활용 가능하도록 돕는 것을 지향합니다. • 비의도적 생략 및 예시적 미한정 고지 (Non-Intentional Omission & Non-Exhaustive Disclaimer) — 본 명세서에 인용되거나 열거된 기술 표준, 공지 원리, 법령 및 관련 저장소 목록은 이해를 돕기 위한 예시적 서술이며 전면적·고착적 한정을 의미하지 않습니다. 작성자의 주관적 한계나 인지적 착오로 인해 특정 세부 규격, 관련 산업 표준, 후속 개정안 또는 균등 선행기술의 명시가 누락되거나 누적 생략되었을 수 있으나, 이는 의도적인 은폐나 배척이 아닙니다. 개시된 상위 기술 사상과 연결되는 모든 파생 표준, 개정 규격, 균등 기구 및 공지기술 조합은 본 방어적 공개 백서의 선행기술 포괄 범주에 포함된 것으로 간주합니다. 
+5. 장소 매핑 (Location Mapping)
+ * 기업용 (Enterprise) — 물류센터, 공장, AS센터, 백화점/병원 상주 등 가동 연속성 중심 환경 (상주 단말 재가동 권한 미부여).[A]
+ * 일상용 (Daily) — 푸드코너, 도서관, 음악 탐색 등 Vibe Search 중심 환경 (신뢰도 $90\%$ 미만 시 단정적 추측 지향 안 함).[B]
+ * 개인용 (Personal) — 약/할일/건강/식단/수리이력 등 개인화 환경 (PII $10\text{s}$ 파기 + 햅틱 1x/2x 알림).[C]
+
+6. 보안 및 자가치유 (Security & Self-Healing)
+ * APK 보안 — 전자서명 미보유 시 설치/실행을 차단 제어하며, 리패키징, 루팅, 탈옥 감지 시 L2 Lock 상태로 전환되어 하드웨어를 보호한다.
+ * Soft Reset (자율 제어) — 칩렛 재기동, Raft 재선출, Token Bucket 리셋, V-Home 재도킹. T-Reg $15\%$ 제한 및 3회 연속 실패 시 영구 격리.
+ * Hard Reset (인간 확인 필수) — Motor EN LOW E_STOP_LATCH 해제 후 RECOVERY 진입 시 Ed25519 인간 서명 필수 (Self-restart 지향 안 함).
+
+7. 안전 프레임워크 (Safety Framework)
+ * S-01 Heinrich (1931) — 300:29:1 비율은 역사적·철학적 동기로 원용하며, 실제 구현은 Safety-II 및 Just Culture에 기반한다.
+ * S-02 ~ S-05 및 기능안전 규격 — Swiss Cheese 능동 차단, Defense in Depth, Fail-Safe (EN PIN LOW), ALARP 확장 및 ISO 13849-1 Cat 4 PL e / IEC 61508 SIL3 / GDPR Article 5(1)(e) PII $10\text{s}$ 파기 조항을 준수한다.
+
+8. 선행기술 등록 및 고지 (Prior Art & Disclaimer)
+ * 선행기술 레지스트리 등재 명세 (CERN Zenodo DOIs) —
+   * deundeuni/CWP-Battery-Swap (DOI: 10.5281/zenodo.22373538)
+   * deundeuni/CWP-Clamping-Battery-Swap-System (DOI: 10.5281/zenodo.22373722)
+   * deundeuni/CWP-Rolling-Self-Align-Battery-Swap-System (DOI: 10.5281/zenodo.22373704)
+   * deundeuni/LAST-LIGHT (DOI: 10.5281/zenodo.22373189)
+   * deundeuni/MAX-LIFE-ICE-BELT (DOI: 10.5281/zenodo.22373686)
+   * deundeuni/chiplet-apu-multi-system-survival-architecture (DOI: 10.5281/zenodo.22374987)
+     (상기 CERN Zenodo / DataCite 글로벌 학술 레지스트리 등재 완료 / Active)
+ * 선행기술 등록 고지 — 본 문서의 모든 커밋 해시(Commit Hash) 및 CERN Zenodo / DataCite 글로벌 학술 레지스트리에 타임스탬프 기록이 등재되어 있습니다. 이는 제3자의 사적 독점 특허화 위험을 완화하고, 전 세계 특허 심사 시 공공 영역의 선행기술(Prior Art)로 참조되어 신규성 및 진보성 논박 근거로 활용 가능하도록 돕는 것을 지향합니다.
+ * 비의도적 생략 및 예시적 미한정 고지 (Non-Intentional Omission & Non-Exhaustive Disclaimer) — 본 명세서에 인용되거나 열거된 기술 표준, 공지 원리, 법령 및 관련 저장소 목록은 이해를 돕기 위한 예시적 서술이며 전면적·고착적 한정을 의미하지 않습니다. 작성자의 주관적 한계나 인지적 착오로 인해 특정 세부 규격, 관련 산업 표준, 후속 개정안 또는 균등 선행기술의 명시가 누락되거나 누적 생략되었을 수 있으나, 이는 의도적인 은폐나 배척이 아닙니다. 개시된 상위 기술 사상과 연결되는 모든 파생 표준, 개정 규격, 균등 기구 및 공지기술 조합은 본 방어적 공개 백서의 선행기술 포괄 범주에 포함된 것으로 간주합니다.
+
 origin: by deundeuni | domain: somamoa.ai.kr | repo: github.com/soma-moa | v2.2 Final: 2026-08-27 | PHILOSOPHY.ko.md is authoritative | CC BY 4.0 & DPL
